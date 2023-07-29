@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width"/>
+<title>Portfolio Website</title>
+<link rel="stylesheet" type="text/css" href="stylesheet/portfolio.css">
+</head>
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    header {
+      background-color: #1a1a1a; /* Black */
+      color: #ecd8d8; /* Red */
+      padding: 20px;
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    @keyframes fadeInDown {
+      0% {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    nav {
+      background-color: rgba(26, 26, 26, 0.8); /* Transparent Black */
+      color: #ff4444; /* Red */
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: fadeInDown 1s ease-in-out;
+    }
+    nav a {
+      color: #ff4444; /* Red */
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 10px;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #44d9a5;
+    }
+    .container {
+      text-align: center;
+      padding: 80px 0;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    .container .projects {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 30px auto;
+    }
+    .project {
+      flex-basis: 30%;
+      padding: 20px;
+      background-color: #2e2b2b;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+      margin: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+    }
+    .project h2 {
+      color: #ff4444; /* Red */
+      margin-bottom: 10px;
+    }
+    .project p {
+      color: #666;
+    }
+    .image-overlay {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .image-overlay img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      transition: transform 0.5s ease;
+    }
+    .image-overlay:hover img {
+      transform: scale(1.1);
+    }
+    .overlay-text {
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(255, 254, 254, 0.5);
+      pointer-events: none;
+      opacity: 0;
+      animation: slideFromTop 1s ease-in-out forwards;
+    }
+    @keyframes slideFromTop {
+      0% {
+        top: -50%;
+        opacity: 0;
+      }
+      100% {
+        top: 25%;
+        opacity: 1;
+      }
+    }
+    .video-container {
+      text-align: center;
+      margin: 0 auto 50px;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    video {
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+      max-width: 800px; /* Adjust the size as per your preference */
+      width: 100%;
+      height: auto;
+    }
+    video:hover {
+      transform: scale(1.1);
+    }
+    footer {
+      background-color: #1a1a1a; /* Black */
+      color: #ff4444; /* Red */
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    .links {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      line-height: 1.6;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    .links a {
+      color: #44d9a5;
+      text-decoration: none;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInDown 1s ease-in-out;
+    }
+    .contact-form label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      resize: vertical;
+    }
+    .contact-form button {
+      background-color: #1a1a1a; /* Black */
+      color: #ff4444; /* Red */
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .contact-form button:hover {
+      background-color: #44d9a5;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="animated-text">TECH ACADEMY'S PORTFOLIO</h1>
+  </header>
+  <nav>
+ 
+    <a href="#about">ABOUT</a>
+    <a href="#github">GITHUB</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+<!--Background Video-->
+  <div class="container">
+    <div class="video-container">
+      <video src="production_id_4496268 (1080p).mp4" controls muted autoplay loop>
+      </video>
+    </div>
+<p><strong>Computer programmer is a creator of universe for which he alone is the lawgiver.
+  <br>No playwright, no stage director, no emperor, however powerful, has ever exercised such absolute authority to arrange a stage or
+  <br>field of battle and to command such unswervingly dutiful actors or troops.
+</p>
+<br>-Joseph Weizenbaum</strong>
+<br>
+<br>My name is Vimalakanth Vairamuthu. Welcome to my portfolio website. On it, I will tell you about my background and experience.
+<br>
+<br>Thank you for stopping by and enjoy! 
+    <div class="projects">
+      <div class="project">
+        <div class="image-overlay">
+          <img src="pexels-sora-shimazaki-5926389.jpg" alt="Image 1">
+          <div class="overlay-text">ABOUT</div>
+        </div>
+        
+        <p>I am a software developer who loves to code! As a father of two, I enjoy time with my family and traveling. 
+          <br>
+          <br>I am a graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>’s Software Developer Boot Camp, and trained and experienced
+          <br>
+          <br>I am a full-stack developer and would love to work with you on your project. <a href="#Contact">Contact</a> me below!
+        </p>
+      </div>
+
+      <div class="project">
+        <div class="image-overlay">
+          <img src="github-cover.jpg" alt="Image 2">
+          <div class="overlay-text">GITHUB</div>
+        </div>
+        <br>
+        <p>You can view my coding projects on my GitHub profile here:
+          <br>
+          <p class="center"><a href="https://github.com/Vimalacademy" target="_blank">The Tech Academy Github</a></p>
+        </p>
+      </div>
+
+      <div class="project">
+        <div class="image-overlay">
+          <img src="25.jpg" alt="Image 3">
+          <br>
+          <div class="overlay-text">CONTACT</div>
+        </div>
+       
+
+    
+
+    <div class="contact-form">
+      <h2>Contact Me</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  
+<br>
+  <footer>
+    © 2023 Your Name | All rights reserved <p class="center">&copy Prosper Consulting Inc.,
+      <br> <a href="https://www.learncodinganywhere.com/" target="_blank">The Tech Academy</a></p>
+  </footer>
+
+</body>
+</html>
